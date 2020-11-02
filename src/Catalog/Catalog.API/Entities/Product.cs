@@ -1,0 +1,21 @@
+﻿using System;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace Catalog.API.Entities
+{
+    public class Product
+    {
+        [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+        public string Id { get; set; }
+        [BsonElement("Name", Order = 1)]
+        public string Name { get; set; }
+        [BsonElement("Category", Order = 2)]
+        public string Category { get; set; }
+        public string Summary { get; set; }
+        public string Description { get; set; }
+        public string ImageFile { get; set; }
+        public decimal Price { get; set; }
+    }
+}
